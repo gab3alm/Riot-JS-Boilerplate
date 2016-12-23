@@ -1,18 +1,13 @@
-require("expose?$!jquery");
+require('expose?$!expose?jQuery!jquery');
 require("materialize-css/dist/css/materialize.min.css");
 require("materialize-css/dist/js/materialize.min.js");
 
-var riot = require('riot');
-var route = require('riot-route');
+// require all your necessary elements
+require('./tags/main.tag');
+require('./tags/navbar.tag');
+require('./tags/footing.tag');
 require('./tags/sample.tag');
 require('./tags/sample2.tag');
 
-
-
-riot.mount('*');  // mount all tags
-route.start(true); // start listening for URL change
-
-var routes = route.create();
-routes('', function(){
-  riot.mount('#main-viewport', 'sample');
-});
+// route file
+require('./routes.js');

@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -6,6 +7,11 @@ module.exports = {
   },
   module:{
     loaders:[
+    { 
+      //expose jquery globally
+      test: require.resolve('jquery'), 
+      loader: 'expose?jQuery!expose?$' 
+    },
     {
       test: /\.js$/,
       loader:'babel-loader',
